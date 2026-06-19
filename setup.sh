@@ -105,6 +105,14 @@ else
   echo '{}' > "${VAULT_PATH}/.obsidian/app.json"
 fi
 
+# 更新 reasonix.toml 中的 Vault 路径占位符
+if [ -f "${SCRIPT_DIR}/reasonix.toml" ]; then
+  if grep -q '<YOUR_VAULT_PATH>' "${SCRIPT_DIR}/reasonix.toml"; then
+    sed -i '' "s|<YOUR_VAULT_PATH>|${VAULT_PATH}|g" "${SCRIPT_DIR}/reasonix.toml"
+    ok "已更新 reasonix.toml → ${VAULT_PATH}"
+  fi
+fi
+
 # 同步知识库文件到 Vault
 if [ -d "${SCRIPT_DIR}/knowledge-base" ]; then
   info "同步知识库到 Vault..."

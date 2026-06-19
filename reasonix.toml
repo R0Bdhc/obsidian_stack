@@ -1,3 +1,5 @@
-# Workspace-level override — adds Obsidian Vault to writable paths
+# Workspace-level Reasonix configuration.
+# setup.sh will generate this file with your actual Vault path on first run.
 [sandbox]
-allow_write = ["/tmp", "/Users/apple/Documents/Obsidian Vault"]
+# Replace <YOUR_VAULT_PATH> with your Obsidian Vault location, or run ./setup.sh
+allow_write = ["/tmp", "<YOUR_VAULT_PATH>"]
