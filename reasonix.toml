@@ -1,0 +1,3 @@
+# Workspace-level override — adds Obsidian Vault to writable paths
+[sandbox]
+allow_write = ["/tmp", "/Users/apple/Documents/Obsidian Vault"]
