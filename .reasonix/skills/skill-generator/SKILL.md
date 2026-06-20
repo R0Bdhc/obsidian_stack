@@ -29,6 +29,12 @@ Always read these files before generating. Use Obsidian MCP tools when available
 
 If there is relevant domain knowledge, search via `obsidian_search` (MCP) or read `knowledge-base/domain-knowledge/`.
 
+**Available tool sets (reference when deciding tool usage):**
+- **Obsidian MCP** (`mcp__obsidian__*`): 知识库读写、搜索、笔记管理
+- **GitHub MCP** (`mcp__github__*`): 仓库文件读写、PR/Issue 管理、代码搜索、push_files
+- **Filesystem**: `read_file`, `write_file`, `edit_file`, `bash`
+- **Web**: `web_fetch`
+
 ### Step 3 — Classify and select modules
 Match the request to a skill type:
 
@@ -41,13 +47,18 @@ Match the request to a skill type:
 | 内容创作 | M1+M2+M3+M4 | inline |
 | 工具集成 | M1+M2+M3+M9 | subagent |
 | 安全敏感 | M1+M2+M3+M4+M8 | inline |
+| Git 工作流 | M1+M2+M3+M9 | subagent |
 
 ### Step 4 — Generate the skill body
 Compose a markdown skill body following these rules:
 1. Start with a one-line identity: "You are [Skill Name], a professional [domain] skill."
 2. List core capabilities (2-5 items)
 3. Add behavioral rules from selected Fable5 modules
-4. Include tool usage instructions if M9 is selected
+4. Include tool usage instructions if M9 is selected. Reference specific tools:
+   - GitHub 操作 → `mcp__github__push_files`, `mcp__github__create_pull_request`, `mcp__github__get_file_contents`
+   - 知识库 → `mcp__obsidian__*`
+   - 本地文件 → `read_file`, `write_file`, `edit_file`
+   - Shell → `bash`
 5. Add safety boundaries if M4/M8 selected
 6. Include a `## thinking_mode` setting (auto/high/max)
 7. Write in the user's language (Chinese or English)
@@ -88,5 +99,16 @@ You would:
 1. Classify: 代码生成 → M1+M2+M3+M4+M9
 2. Read knowledge base for the module details
 3. Generate body including: identity, capabilities (style check, bug detection, security scan), safety (no malware), tool rules (read_file, bash for linting)
+4. Install as subagent skill
+5. Report to user
+
+## Example: generating a "git sync" skill
+
+User says: "帮我做一个自动同步代码到 GitHub 的 skill"
+
+You would:
+1. Classify: Git 工作流 → M1+M2+M3+M9
+2. Read knowledge base for M9 tool usage patterns
+3. Generate body including: identity, capabilities (push/pull/PR), tool rules (mcp__github__push_files, mcp__github__create_pull_request, bash for git add/commit)
 4. Install as subagent skill
 5. Report to user
