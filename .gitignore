@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+reports/*.md
+ansys_workspace/
+runtime_data/
+mechanical_workspace/
+.env
+*.log
+nodejs/
+*.tar.gz
+book/

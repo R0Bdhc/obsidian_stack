@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -d \"D:/Obsidian\"*/ 2>/dev/null; ls -d \"D:/obsidian\"*/ 2>/dev/null; find \"D:/\" -maxdepth 2 -name \"Obsidian*\" -type d 2>/dev/null | head -20)",
+      "Read(//d//**)",
+      "Bash(python)",
+      "Bash(python -c ' *)",
+      "Bash(python knowledge_deepener_v2.py)",
+      "Bash(rm deep_part1.json deep_part2.json deep_part3.json)",
+      "Bash(ls *.json)",
+      "Bash(cat \"C:/Users/Administrator/.claude/settings.json\" 2>/dev/null | head -50)",
+      "Read(//c/Users/Administrator/.claude/**)",
+      "WebFetch(domain:github.com)",
+      "Bash(git clone *)"
+    ]
+  }
+}

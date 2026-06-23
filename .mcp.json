@@ -1,0 +1,48 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic/mcp-server-filesystem",
+        "d:/ansysagent/sample_inputs",
+        "d:/ansysagent/sample_logs",
+        "d:/ansysagent/ansys_workspace",
+        "d:/ansysagent/reports",
+        "d:/ansysagent/runtime_data"
+      ],
+      "description": "安全访问 CAE Agent 工作目录：输入文件、日志、执行产物和报告。"
+    },
+    "deepseek": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "deepseek-mcp-server"
+      ],
+      "env": {
+        "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY}",
+        "DEEPSEEK_MODEL": "deepseek-v4-pro"
+      },
+      "description": "DeepSeek LLM API，用于 CAE 错误交互式诊断。与 llm_analyzer.py 使用同一 API Key。"
+    },
+    "ansys-local": {
+      "command": "python",
+      "args": [
+        "d:/ansysagent/.claude/mcp-servers/ansys-mcp/server.py"
+      ],
+      "env": {
+        "ANSYS241_DIR": "${ANSYS241_DIR}",
+        "ANSYSLIC_DIR": "${ANSYSLIC_DIR}",
+        "AWP_ROOT241": "${AWP_ROOT241}",
+        "PYTHONPATH": "d:/ansysagent"
+      },
+      "description": "自定义 ANSYS MCP 服务器，封装 PyMAPDL 执行和状态查询。"
+    }
+  },
+  "notes": {
+    "filesystem": "提供对项目工作目录的安全文件读写，Claude 可以直接浏览 ansys_workspace 中的求解产物。",
+    "deepseek": "如果社区没有 deepseek-mcp-server，可以用 OpenAI 兼容的 MCP 替代，设置 base_url 指向 api.deepseek.com。",
+    "ansys-local": "自定义 MCP 服务器，需要先安装 ansys-mapdl-core。如果当前环境无 ANSYS，此服务器启动会失败但不影响其他 MCP。",
+    "startup": "所有 MCP 服务器在 Claude Code 启动时自动加载。ansys-local 失败不会阻塞其他服务器。"
+  }
+}

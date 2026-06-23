@@ -1,0 +1,1 @@
+/COM, temporary unsupported file for API validation test

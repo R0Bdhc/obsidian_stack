@@ -1,0 +1,10 @@
+*** ERROR ***
+The solver has detected a singular matrix during the equation solution.
+
+*** WARNING ***
+Contact penetration detected in pair 12 during nonlinear iteration.
+
+*** ERROR ***
+Convergence failed at substep 8.
+
+Job terminated due to nonlinear convergence difficulty.
