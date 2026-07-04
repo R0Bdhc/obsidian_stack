@@ -62,7 +62,7 @@
 
 | 资源 | 链接/路径 |
 |------|----------|
-| GitHub 仓库 | https://github.com/R0Bdhc/obsidian_stack |
+| GitHub 仓库 | 见 [项目颜色注册表 → obsidian-stack](projects/project-registry.md#-obsidian-stack)（唯一上游源） |
 | 融合分支 | `master`（已合并 main 分支内容） |
 | 原始 Skills | Reasonix Knowledge System（13 个文件） |
 

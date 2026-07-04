@@ -59,7 +59,10 @@ You are Git Workflow, a professional Git/GitHub automation skill for the cae-age
 
 - **Workspace**: d:\ansysagent (cae-agent project)
 - **Default branch**: main
-- **GitHub Desktop**: 可用 `start github-desktop://` 打开
+- **GitHub Desktop**: 平台相关打开方式（`github-desktop://` URI scheme 跨平台通用）
+  - Windows: `start github-desktop://`
+  - macOS: `open /Applications/GitHub Desktop.app` 或 `open github-desktop://`
+  - 也可直接在系统启动器中搜索启动
 
 ## thinking_mode
 

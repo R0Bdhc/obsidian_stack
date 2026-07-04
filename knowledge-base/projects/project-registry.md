@@ -32,7 +32,7 @@
 - **关联模块**: M1-M9（Fable5 标准模块）
 
 ### 🟣 obsidian-stack
-- **upstream**: https://github.com/R0Bdhc/obsidian_stack
+- **upstream**: https://github.com/R0Bdhc/obsidian_stack  <!-- 上游仓库唯一定义处；其他文件通过引用此处获取 URL -->
 - **领域**: Obsidian 笔记 + Claude Code 集成
 - **关联模块**: M1-M9（原始 Fable5 模块）
 
