@@ -1,0 +1,5 @@
+# Workspace-level Reasonix configuration.
+# setup.sh will generate this file with your actual Vault path on first run.
+[sandbox]
+# Replace <YOUR_VAULT_PATH> with your Obsidian Vault location, or run ./setup.sh
+allow_write = ["/tmp", "<YOUR_VAULT_PATH>"]
