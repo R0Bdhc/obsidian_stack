@@ -1,7 +1,6 @@
 # ANSYS 接触分析最佳实践
 
-> 来源: ANSYS Mechanical APDL Contact Technology Guide (v241)
-> 整理: cae-agent 项目
+> 🔵 `cae-agent` | 来源: ANSYS Mechanical APDL Contact Technology Guide (v241)
 
 ---
 

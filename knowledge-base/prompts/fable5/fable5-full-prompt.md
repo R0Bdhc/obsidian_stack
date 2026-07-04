@@ -1,8 +1,7 @@
 # Fable 5 — 完整系统提示词
 
-> 来源: https://github.com/cyrus-tt/fable5-system-prompt
-> 提取者: Pliny the Liberator
-> 这是从 Claude Fable 5 模型中提取的原始系统提示词。
+> ⚪ `fable5` | 来源: https://github.com/cyrus-tt/fable5-system-prompt
+> 提取者: Pliny the Liberator | 原始系统提示词全文
 
 ---
 

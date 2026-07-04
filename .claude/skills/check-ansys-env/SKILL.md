@@ -1,6 +1,8 @@
 ---
 name: check-ansys-env
 description: 检查 CAE Agent 完整环境状态，包括 LLM 连通性、PyMAPDL 可用性和 PyMechanical 版本检测。
+project: cae-agent
+color: "#2563EB"
 ---
 
 # 环境检查技能

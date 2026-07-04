@@ -11,7 +11,32 @@
       "Bash(cat \"C:/Users/Administrator/.claude/settings.json\" 2>/dev/null | head -50)",
       "Read(//c/Users/Administrator/.claude/**)",
       "WebFetch(domain:github.com)",
-      "Bash(git clone *)"
+      "Bash(git clone *)",
+      "Bash(git ls-remote *)",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/readme\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/languages\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/R0Bdhc/obsidian_stack/master/README.md\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/.reasonix\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/R0Bdhc/obsidian_stack/master/AGENTS.md\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/R0Bdhc/obsidian_stack/master/reasonix.toml\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/R0Bdhc/obsidian_stack/master/setup.sh\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/.reasonix/skills\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base/prompts\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base/templates\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base/domain-knowledge\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base/skills-output\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/git/trees/master?recursive=1\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(f['path']\\) for f in data.get\\('tree',[]\\) if f['type']=='blob']\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/contents/knowledge-base/prompts/fable5\")",
+      "Bash(curl -sL \"https://api.github.com/repos/R0Bdhc/obsidian_stack/license\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/R0Bdhc/obsidian_stack/master/LICENSE\")",
+      "Bash(ls -la d:/temp/obsidian_stack/)",
+      "Read(//d/temp/obsidian_stack/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'feat: 知识库项目颜色分类系统 — M0 模块 *)"
     ]
   }
 }

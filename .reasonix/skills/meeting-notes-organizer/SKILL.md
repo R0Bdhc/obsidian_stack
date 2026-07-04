@@ -1,6 +1,8 @@
 ---
 name: meeting-notes-organizer
 description: 会议笔记整理师：从会议对话中提取议题/决策/行动项/责任人/截止日期，结构化整理为 Markdown 笔记并保存到知识库。
+project: reasonix
+color: "#16A34A"
 ---
 
 # Meeting Notes Organizer

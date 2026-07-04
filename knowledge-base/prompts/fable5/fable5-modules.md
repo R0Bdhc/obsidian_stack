@@ -1,8 +1,7 @@
 # Claude Fable 5 — 系统提示词知识库
 
-> 来源: https://github.com/cyrus-tt/fable5-system-prompt
-> 提取者: Pliny the Liberator
-> 版本: Fable 5 Lite (164行精简版)
+> ⚪ `fable5` | 来源: https://github.com/cyrus-tt/fable5-system-prompt
+> 提取者: Pliny the Liberator | 版本: Fable 5 Lite (164行精简版)
 
 ---
 

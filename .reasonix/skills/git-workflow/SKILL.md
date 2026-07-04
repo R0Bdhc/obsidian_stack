@@ -1,6 +1,8 @@
 ---
 name: git-workflow
 description: Git 工作流自动化：智能提交、Push/Pull、PR 管理，与 GitHub Desktop 联动。适配 cae-agent 项目。
+project: reasonix
+color: "#16A34A"
 ---
 
 # Git Workflow

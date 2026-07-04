@@ -1,6 +1,8 @@
 ---
 name: run-log-analysis
 description: 分析 ANSYS 求解日志，检测错误并生成 Markdown 报告。支持传入文件路径或直接粘贴日志文本。
+project: cae-agent
+color: "#2563EB"
 ---
 
 # 日志分析技能

@@ -1,6 +1,8 @@
 ---
 name: run-mapdl-input
 description: 执行 MAPDL 输入文件（.inp/.dat/.mac）并可选自动分析结果日志。
+project: cae-agent
+color: "#2563EB"
 ---
 
 # MAPDL 输入文件执行技能

@@ -106,17 +106,24 @@ curl -X POST http://127.0.0.1:8000/analyze-log \
 
 ## 知识库 (knowledge-base/)
 
+知识库内容按项目颜色分类，详见 [INDEX.md](knowledge-base/INDEX.md) 和 [项目颜色注册表](knowledge-base/projects/project-registry.md)。
+
 ```
 knowledge-base/
-├── prompts/fable5/            Fable5 提示词工程模板
-│   ├── fable5-modules.md      10 大行为模块拆解 (M1-M9)
-│   └── fable5-full-prompt.md  完整系统提示词参考
+├── INDEX.md                     🔍 颜色分类全景索引
+├── projects/
+│   └── project-registry.md      🎨 项目颜色注册表（5 项目 → 色值映射）
+├── prompts/fable5/              ⚪ Fable5 提示词工程模板（跨项目通用）
+│   ├── fable5-modules.md        10 大行为模块拆解 (M1-M9)
+│   └── fable5-full-prompt.md    完整系统提示词参考
 ├── templates/
-│   └── skill-template.md      Skill 构造模板 (M1-M10, 含 CAE 专用模块)
-├── domain-knowledge/          CAE 领域知识积累
+│   └── skill-template.md        Skill 构造模板 (M0-M10, 含项目颜色 M0)
+├── domain-knowledge/            🔵 CAE 领域知识积累
 │   └── contact-analysis-best-practices.md
-└── skills-output/             生成的 Skill 备份
+└── skills-output/               生成的 Skill 备份（按项目颜色标记）
 ```
+
+**项目颜色速查：** 🔵 `cae-agent` | 🟢 `reasonix` | 🟣 `obsidian-stack` | 🟠 `ansys-tools` | ⚪ `fable5`
 
 `book/v241/` 目录存放 ANSYS v241 官方 PDF 手册（100+ 本），可通过 Read 工具直接查阅。
 

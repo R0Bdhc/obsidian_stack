@@ -1,6 +1,8 @@
 ---
 name: batch-contact
 description: 基于 Named Selection 前缀批量创建 Mechanical 接触对（242+）。默认预览模式。
+project: cae-agent
+color: "#2563EB"
 ---
 
 # 批量接触自动化技能
