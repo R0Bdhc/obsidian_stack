@@ -119,3 +119,9 @@ chmod +x setup.sh && ./setup.sh
 - `setup.sh` 仅支持 macOS (x64/arm64)。Linux 需修改 Node.js 下载 URL
 - Node.js 安装到 `nodejs/` (~690MB)，已在 `.gitignore` 排除，不会提交到 Git
 - Vault 路径可在 `setup.sh --vault` 或 `reasonix.toml` 中自定义
+
+---
+
+## License
+
+MIT License — see [LICENSE](./LICENSE) for details.
