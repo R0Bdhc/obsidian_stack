@@ -1,0 +1,75 @@
+---
+name: obsidian-markdown
+description: |
+  Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts,
+  properties, and other Obsidian-specific syntax. Use when working with .md files
+  in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags,
+  embeds, or Obsidian notes.
+author: kepano
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: create_note
+    description: Create an Obsidian note with proper frontmatter and OFM syntax
+    parameters:
+      - name: title
+        type: string
+        required: true
+      - name: content
+        type: string
+        required: true
+      - name: tags
+        type: array
+        required: false
+      - name: aliases
+        type: array
+        required: false
+      - name: folder
+        type: string
+        required: false
+    returns:
+      - note_path
+
+  - name: add_wikilinks
+    description: Add or fix [[wikilinks]] in a note
+    parameters:
+      - name: file
+        type: string
+        required: true
+      - name: links
+        type: array
+        required: true
+    returns:
+      - updated_count
+
+  - name: add_callout
+    description: Add a callout block to a note
+    parameters:
+      - name: file
+        type: string
+        required: true
+      - name: type
+        type: string
+        required: true
+        enum: ["note", "warning", "tip", "info", "danger", "success", "question", "quote"]
+      - name: title
+        type: string
+        required: false
+      - name: content
+        type: string
+        required: true
+    returns:
+      - block_inserted
+
+categories:
+  - formatting
+  - obsidian
+  - markdown
+
+tags:
+  - wikilinks
+  - callouts
+  - frontmatter
+  - embeds
+  - ofm

@@ -1,0 +1,48 @@
+---
+name: conversation-to-knowledge
+description: |
+  将 Claude Code 的对话记录（JSONL）自动精炼为结构化的 Obsidian 知识库笔记。
+  当用户需要整理对话历史、生成项目文档、构建个人知识库时触发。
+  支持按项目生成总览、时间线、技术栈、架构设计、配置管理等结构化笔记，
+  以及按学科领域生成深度知识文章。
+author: knowledge-pipeline
+version: 1.0.0
+license: MIT
+
+prerequisites:
+  - python: "3.11+"
+  - paths:
+      - "~/.claude/projects/*.jsonl"  # 对话源
+      - "D:/knowledgement"             # 输出 Vault
+
+tools:
+  - name: refine_conversations
+    description: 解析 ~/.claude/projects/ 下的 JSONL 并生成项目笔记
+    parameters:
+      - name: dry_run
+        type: boolean
+        default: false
+    returns:
+      - project_count
+      - conversation_count
+      - output_path
+
+  - name: generate_project_overview
+    description: 为指定项目生成 📋 项目总览
+    parameters:
+      - name: project_name
+        type: string
+        required: true
+    returns:
+      - note_path
+
+categories:
+  - ingestion
+  - conversation
+  - automation
+
+tags:
+  - jsonl
+  - claude-code
+  - obsidian
+  - project-docs

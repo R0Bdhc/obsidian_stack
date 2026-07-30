@@ -1,0 +1,55 @@
+---
+name: obsidian-cli
+description: |
+  Interact with Obsidian vaults via the Obsidian CLI. Use when performing
+  terminal operations on vaults, managing plugins/themes, batch renaming,
+  or automating vault maintenance tasks.
+author: kepano
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: vault_status
+    description: Check vault integrity, broken links, orphaned files
+    parameters:
+      - name: vault_path
+        type: string
+        required: false
+    returns:
+      - broken_links
+      - orphaned_files
+      - stats
+
+  - name: batch_rename
+    description: Batch rename notes while updating wikilinks
+    parameters:
+      - name: pattern
+        type: string
+        required: true
+      - name: replacement
+        type: string
+        required: true
+      - name: folder
+        type: string
+        required: false
+    returns:
+      - renamed_count
+      - updated_links
+
+  - name: list_plugins
+    description: List installed community plugins and themes
+    parameters: {}
+    returns:
+      - plugins
+      - themes
+
+categories:
+  - cli
+  - maintenance
+  - automation
+
+tags:
+  - cli
+  - vault
+  - maintenance
+  - batch

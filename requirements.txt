@@ -1,0 +1,9 @@
+# Dependencies
+openai-whisper
+pyyaml
+requests
+
+# Optional (for advanced features)
+# markdownify
+# beautifulsoup4
+# pandoc

@@ -1,0 +1,62 @@
+---
+name: obsidian-bases
+description: |
+  Create and edit Obsidian Bases (.base) files with views, filters, formulas,
+  and summaries. Use when creating database views, tracking projects, managing
+  structured data, or building dashboards in Obsidian.
+author: kepano
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: create_base
+    description: Create a new .base file with configured views
+    parameters:
+      - name: title
+        type: string
+        required: true
+      - name: fields
+        type: array
+        required: true
+      - name: views
+        type: array
+        required: false
+      - name: folder
+        type: string
+        default: "Bases"
+    returns:
+      - base_path
+
+  - name: add_view
+    description: Add a view (table, gallery, kanban) to a base
+    parameters:
+      - name: base
+        type: string
+        required: true
+      - name: view_type
+        type: string
+        required: true
+        enum: ["table", "gallery", "kanban", "calendar", "list"]
+      - name: name
+        type: string
+        required: true
+      - name: filter
+        type: string
+        required: false
+      - name: sort
+        type: string
+        required: false
+    returns:
+      - view_added
+
+categories:
+  - database
+  - organization
+  - dashboard
+
+tags:
+  - bases
+  - database
+  - views
+  - filters
+  - dashboard

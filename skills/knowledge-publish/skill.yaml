@@ -1,0 +1,60 @@
+---
+name: knowledge-publish
+description: |
+  知识发布与导出。将精修后的 Obsidian 笔记导出为可分享的格式，
+  支持 Markdown-clean、PDF、HTML、JSON 等多种输出。
+  统一工作流 Stage 3。
+author: unified-obsidian-knowledge
+version: 1.0.0
+license: MIT
+
+dependencies:
+  - skill: knowledge-refine
+    version: ">=1.0"
+
+tools:
+  - name: export_project
+    description: 导出单个项目为分享包
+    parameters:
+      - name: project_name
+        type: string
+        required: true
+      - name: format
+        type: string
+        default: "markdown-clean"
+        enum: ["markdown-clean", "html", "pdf", "json"]
+    returns:
+      - export_path
+
+  - name: export_domain
+    description: 导出知识领域为电子书/手册
+    parameters:
+      - name: domain_name
+        type: string
+        required: true
+      - name: format
+        type: string
+        default: "pdf"
+    returns:
+      - export_path
+
+  - name: compile_digest
+    description: 编译周刊/月报
+    parameters:
+      - name: period
+        type: string
+        default: "weekly"
+        enum: ["daily", "weekly", "monthly"]
+    returns:
+      - digest_path
+
+categories:
+  - publishing
+  - export
+  - sharing
+
+tags:
+  - markdown
+  - pdf
+  - html
+  - newsletter

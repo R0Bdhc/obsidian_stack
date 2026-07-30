@@ -1,0 +1,66 @@
+# Unified Knowledge Pipeline Configuration
+# 所有硬编码路径在此集中管理
+
+# ── Vault 输出路径 ─────────────────────────
+vault_output: "D:/knowledgement"
+
+# ── 输入源 ─────────────────────────────────
+sources:
+  claude_projects:
+    path: "~/.claude/projects"
+    pattern: "*.jsonl"
+  voice_notes:
+    path: "~/Dropbox/VoiceNotes"
+    pattern: "*.{mp3,wav,m4a,ogg}"
+  text_drops:
+    path: "~/Dropbox/TextDrops"
+    pattern: "*.{txt,md}"
+
+# ── 知识领域定义 ───────────────────────────
+domains:
+  计算力学与有限元:
+    color: "#e63946"
+    icon: "🔴"
+  软件工程与架构:
+    color: "#457b9d"
+    icon: "🔵"
+  人工智能与LLM:
+    color: "#9b5de5"
+    icon: "🟣"
+  工程仿真自动化:
+    color: "#2a9d8f"
+    icon: "🟢"
+  知识管理与工具链:
+    color: "#e9c46a"
+    icon: "🟡"
+
+# ── Pipeline 阶段开关 ──────────────────────
+stages:
+  refinery: true      # 对话精炼
+  deepener: true      # 知识深化
+  obsidian_sync: true # 同步到 Obsidian
+
+# ── 自动生成规则 ───────────────────────────
+auto_generate:
+  project_notes:      # 为每个项目生成
+    - overview       # 📋 项目总览
+    - timeline       # 📈 更新进度
+    - roadmap        # 🎯 改进方向
+    - tech_stack     # 🔧 技术栈
+    - capabilities   # 🔄 能力流程
+    - architecture   # 🏗️ 架构设计
+    - config_mgmt    # ⚙️ 配置管理
+  domain_index: true  # 为每个领域生成索引
+  master_dashboard: true  # 生成 🏠 知识总览
+
+# ── Obsidian 集成 ──────────────────────────
+obsidian:
+  enabled: true
+  vault_path: "D:/knowledgement"
+  use_obsidian_skills: true  # 是否调用 obsidian-markdown/json-canvas 等 skill
+
+# ── 执行模式 ───────────────────────────────
+execution:
+  dry_run: false
+  clean_output: true   # 运行前清理旧输出（保留 .obsidian）
+  max_conversations: 0  # 0 = 无限制

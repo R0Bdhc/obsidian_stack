@@ -1,0 +1,51 @@
+---
+name: defuddle
+description: |
+  Extract clean markdown from web pages using Defuddle, removing clutter,
+  navigation, ads, and other non-content elements to save tokens and produce
+  readable notes. Use when importing web articles, documentation, or blog posts
+  into an Obsidian vault.
+author: kepano
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: extract_url
+    description: Extract clean markdown from a URL
+    parameters:
+      - name: url
+        type: string
+        required: true
+      - name: include_images
+        type: boolean
+        default: false
+      - name: include_links
+        type: boolean
+        default: true
+    returns:
+      - markdown
+      - title
+      - author
+      - date
+      - word_count
+
+  - name: extract_html
+    description: Extract clean markdown from raw HTML
+    parameters:
+      - name: html
+        type: string
+        required: true
+    returns:
+      - markdown
+      - title
+
+categories:
+  - extraction
+  - web
+  - ingestion
+
+tags:
+  - defuddle
+  - web-scraping
+  - markdown
+  - content-extraction

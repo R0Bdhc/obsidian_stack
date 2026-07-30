@@ -1,0 +1,32 @@
+---
+name: fable5-code-principle
+description: |
+  在生成或编辑 Claude Code Skill 时，强制应用 Fable 5 行为准则和代码输出原则。
+  当用户创建新 skill、修改现有 skill、或需要提升 skill 输出质量时触发。
+  确保 skill 具备温暖专业的语气、清晰的安全边界、优雅的错误处理、
+  以及不超过 500 行的渐进式披露结构。
+author: knowledge-pipeline
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: review_skill
+    description: 审查 skill 是否符合 Fable 5 标准
+    parameters:
+      - name: skill_path
+        type: string
+        required: true
+    returns:
+      - violations
+      - suggestions
+
+categories:
+  - quality
+  - standards
+  - skill-creator
+
+tags:
+  - fable5
+  - skill-quality
+  - safety
+  - tone

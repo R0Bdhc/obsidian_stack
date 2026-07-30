@@ -1,0 +1,45 @@
+---
+name: subject-color-tag
+description: |
+  为 Obsidian 知识库中的不同学科领域分配视觉颜色标记，
+  提升知识浏览和检索效率。
+  当用户需要美化知识库、为学科分类添加视觉标识、
+  或建立颜色编码体系时触发。
+author: knowledge-pipeline
+version: 1.0.0
+license: MIT
+
+dependencies:
+  - skill: subject-induction
+    version: ">=1.0"
+    required: false
+
+tools:
+  - name: apply_color_tags
+    description: 为指定领域应用颜色 CSS
+    parameters:
+      - name: domain
+        type: string
+        required: true
+      - name: color_hex
+        type: string
+        required: false
+    returns:
+      - css_snippet
+
+  - name: generate_color_theme
+    description: 生成完整颜色主题 CSS
+    parameters: []
+    returns:
+      - css_path
+
+categories:
+  - visualization
+  - theming
+  - organization
+
+tags:
+  - css
+  - obsidian-theme
+  - color-coding
+  - navigation

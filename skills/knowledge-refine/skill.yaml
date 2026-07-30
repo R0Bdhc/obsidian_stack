@@ -1,0 +1,94 @@
+---
+name: knowledge-refine
+description: |
+  知识精修编排器 (Orchestrator)。
+  在 conversation-to-knowledge 和 subject-induction 生成基础笔记后，
+  调用 obsidian-markdown、json-canvas、obsidian-bases 等底层 skill
+  对 Vault 进行深度精修：链接补全、Canvas 生成、Bases 更新、状态流转。
+  是统一工作流 Stage 2 的核心入口。
+author: unified-obsidian-knowledge
+version: 1.0.0
+license: MIT
+
+dependencies:
+  - skill: obsidian-markdown
+    version: ">=1.0"
+  - skill: json-canvas
+    version: ">=1.0"
+  - skill: obsidian-bases
+    version: ">=1.0"
+  - skill: conversation-to-knowledge
+    version: ">=1.0"
+  - skill: subject-induction
+    version: ">=1.0"
+  - skill: subject-color-tag
+    version: ">=1.0"
+    required: false
+
+tools:
+  - name: refine_vault
+    description: 对 Vault 执行批量精修
+    parameters:
+      - name: vault_path
+        type: string
+        default: "D:/knowledgement"
+      - name: mode
+        type: string
+        default: "standard"
+        enum: ["quick", "standard", "full"]
+      - name: scope
+        type: string
+        default: "all"
+        enum: ["all", "projects", "knowledge", "inbox"]
+    returns:
+      - processed_notes
+      - created_canvases
+      - updated_bases
+
+  - name: refine_project
+    description: 精修单个项目的笔记
+    parameters:
+      - name: project_name
+        type: string
+        required: true
+      - name: generate_canvas
+        type: boolean
+        default: false
+    returns:
+      - project_path
+      - linked_notes
+
+  - name: refine_domain
+    description: 精修单个知识领域
+    parameters:
+      - name: domain_name
+        type: string
+        required: true
+      - name: generate_moc
+        type: boolean
+        default: true
+    returns:
+      - moc_path
+      - concept_count
+
+  - name: status_flow
+    description: 执行状态流转 inbox → processing → refined
+    parameters:
+      - name: target_status
+        type: string
+        default: "refined"
+        enum: ["processing", "refined", "archived"]
+    returns:
+      - transitioned_count
+
+categories:
+  - refinement
+  - orchestration
+  - obsidian
+
+tags:
+  - wikilinks
+  - canvas
+  - bases
+  - status-flow
+  - orchestrator

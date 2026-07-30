@@ -1,0 +1,92 @@
+---
+name: json-canvas
+description: |
+  Create and edit JSON Canvas (.canvas) files for Obsidian. Use when generating
+  visual diagrams, knowledge maps, flowcharts, kanban boards, mind maps, or
+  project boards. Follows the JSON Canvas Spec 1.0.
+author: kepano
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: create_canvas
+    description: Create a new .canvas file with nodes and edges
+    parameters:
+      - name: title
+        type: string
+        required: true
+      - name: nodes
+        type: array
+        required: true
+      - name: edges
+        type: array
+        required: false
+      - name: folder
+        type: string
+        default: "Canvas"
+    returns:
+      - canvas_path
+
+  - name: add_node
+    description: Add a node to an existing canvas
+    parameters:
+      - name: canvas
+        type: string
+        required: true
+      - name: id
+        type: string
+        required: true
+      - name: type
+        type: string
+        required: true
+        enum: ["text", "file", "link", "group"]
+      - name: x
+        type: number
+        required: true
+      - name: y
+        type: number
+        required: true
+      - name: width
+        type: number
+        default: 250
+      - name: height
+        type: number
+        default: 60
+      - name: text
+        type: string
+        required: false
+      - name: file
+        type: string
+        required: false
+    returns:
+      - node_added
+
+  - name: add_edge
+    description: Add a connection (edge) between two nodes
+    parameters:
+      - name: canvas
+        type: string
+        required: true
+      - name: fromNode
+        type: string
+        required: true
+      - name: toNode
+        type: string
+        required: true
+      - name: label
+        type: string
+        required: false
+    returns:
+      - edge_added
+
+categories:
+  - visualization
+  - diagram
+  - canvas
+
+tags:
+  - canvas
+  - json-canvas
+  - diagram
+  - mind-map
+  - flowchart

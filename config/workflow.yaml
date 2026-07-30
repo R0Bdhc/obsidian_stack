@@ -1,0 +1,112 @@
+# Unified Knowledge Workflow Configuration
+# Copy this file to workflow.yaml and customize for your vault
+
+# ── Vault Paths ───────────────────────────
+vault_path: "/path/to/Your-Obsidian-Vault"
+inbox_folder: "_Inbox"
+processing_folder: "_Processing"
+knowledge_folder: "Knowledge"
+archive_folder: "_Archive"
+exports_folder: "Exports"
+
+# ── Directory Structure ───────────────────
+# The expected structure inside your vault:
+#
+# VAULT/
+# ├── _Inbox/           ← Auto-generated intake notes
+# ├── _Processing/      ← Notes being refined
+# ├── Knowledge/
+# │   ├── Concepts/     ← Permanent concept notes
+# │   ├── Projects/     ← Active projects
+# │   ├── Sources/      ← Books, articles, podcasts
+# │   ├── People/       ← People, meetings
+# │   └── Daily/        ← Daily logs
+# ├── Canvas/           ← Visualization boards
+# ├── Bases/            ← Database views
+# ├── Exports/          ← Published outputs
+# └── Templates/        ← Note templates
+
+# ── Whisper Configuration ──────────────────
+whisper:
+  model: "medium"           # tiny, base, small, medium, large
+  language: "zh"            # Language code (zh, en, ja, etc.)
+  device: "auto"            # auto, cpu, cuda
+  # model_dir: "~/.cache/whisper"  # Optional: custom model cache
+
+# ── Local LLM (Open WebUI) ─────────────────
+llm:
+  enabled: true
+  endpoint: "http://localhost:3000/api/chat/completions"
+  api_key: ""               # Leave empty if no auth required
+  model: "llama3.1:8b"      # Your local model name
+  temperature: 0.3          # Lower = more deterministic frontmatter
+  max_tokens: 500           # For frontmatter generation
+
+# ── Frontmatter Rules ──────────────────────
+frontmatter:
+  auto_tag: true
+  auto_summary: true
+  required_fields:
+    - title
+    - date
+    - tags
+    - status
+
+  # Auto-tagging rules (keyword → tag)
+  tag_rules:
+    "机器学习": ["ml", "ai"]
+    "人工智能": ["ai"]
+    "会议": ["meeting", "work"]
+    "项目": ["project"]
+    "阅读": ["reading"]
+    "灵感": ["idea"]
+    "问题": ["problem", "todo"]
+
+  # Status workflow
+  statuses:
+    - inbox
+    - processing
+    - refined
+    - archived
+
+# ── Templates ──────────────────────────────
+templates:
+  inbox: "templates/inbox-note.md"
+  concept: "templates/concept-note.md"
+  source: "templates/source-note.md"
+  project: "templates/project-note.md"
+  person: "templates/person-note.md"
+  daily: "templates/daily-note.md"
+  moc: "templates/moc-note.md"
+
+# ── Refinement Defaults ────────────────────
+refinement:
+  default_mode: "standard"   # quick, standard, full
+  auto_create_concepts: true
+  generate_canvas_threshold: 5   # Min linked notes to auto-generate canvas
+  atomic_min_words: 200
+  archive_after_days: 30       # Auto-archive refined notes after N days
+
+# ── Publishing ─────────────────────────────
+publishing:
+  default_format: "markdown-clean"
+  resolve_links: "paths"       # paths, urls, keep
+  date_format: "%Y-%m-%d"
+
+# ── Batch Processing ───────────────────────
+batch:
+  watch_extensions:
+    - ".mp3"
+    - ".wav"
+    - ".m4a"
+    - ".ogg"
+    - ".txt"
+    - ".md"
+  auto_archive: true
+  scan_interval_seconds: 300   # For daemon mode (future)
+
+# ── Claude Code Integration ────────────────
+claude_code:
+  skills_dir: ".claude/skills"
+  auto_load_skills: true
+  default_vault_context: true   # Auto-set vault root as working dir

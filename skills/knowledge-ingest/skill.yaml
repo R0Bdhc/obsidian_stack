@@ -1,0 +1,135 @@
+name: knowledge-ingest
+description: |
+  Automated knowledge ingestion skill. Transcribes voice, parses text,
+  extracts web content, and generates structured Obsidian notes with
+  intelligent frontmatter. Privacy-first with local Whisper and optional
+  local LLM enhancement.
+author: unified-obsidian-knowledge
+version: 1.0.0
+license: MIT
+
+prerequisites:
+  - python: "3.9+"
+  - packages:
+      - openai-whisper
+      - pyyaml
+      - requests
+  - services:
+      - name: open-webui
+        description: Local LLM interface (optional but recommended)
+        url: http://localhost:3000
+        required: false
+
+configuration:
+  file: config/workflow.yaml
+  required: true
+
+tools:
+  - name: ingest_voice
+    description: Transcribe audio to structured Markdown note
+    parameters:
+      - name: file
+        type: string
+        required: true
+        description: Absolute path to audio file
+      - name: title
+        type: string
+        required: false
+        description: Note title (defaults to filename without extension)
+      - name: language
+        type: string
+        required: false
+        default: "zh"
+        description: Language code for Whisper
+      - name: model
+        type: string
+        required: false
+        default: "medium"
+        description: Whisper model size
+    returns:
+      - note_path
+      - transcription_text
+      - word_count
+
+  - name: ingest_text
+    description: Import raw text file as structured note
+    parameters:
+      - name: file
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: false
+      - name: tags
+        type: array
+        required: false
+        description: Initial tags to apply
+    returns:
+      - note_path
+
+  - name: ingest_web
+    description: Extract web content to Markdown
+    parameters:
+      - name: url
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: false
+      - name: extract_links
+        type: boolean
+        required: false
+        default: true
+    returns:
+      - note_path
+      - extracted_links
+
+  - name: batch_ingest
+    description: Process all files in a directory
+    parameters:
+      - name: watch_dir
+        type: string
+        required: true
+      - name: auto_archive
+        type: boolean
+        required: false
+        default: true
+      - name: file_types
+        type: array
+        required: false
+        default: ["mp3", "wav", "m4a", "ogg", "txt", "md"]
+    returns:
+      - processed_count
+      - failed_files
+
+  - name: generate_frontmatter
+    description: Analyze and suggest YAML frontmatter for a note
+    parameters:
+      - name: file
+        type: string
+        required: true
+      - name: llm_enhance
+        type: boolean
+        required: false
+        default: true
+    returns:
+      - suggested_frontmatter
+      - suggested_tags
+      - suggested_links
+
+hooks:
+  post_ingest:
+    description: Triggered after successful ingestion
+    action: "Optionally notify knowledge-refine skill"
+
+categories:
+  - ingestion
+  - automation
+  - privacy
+
+tags:
+  - whisper
+  - voice
+  - markdown
+  - obsidian
+  - local-first

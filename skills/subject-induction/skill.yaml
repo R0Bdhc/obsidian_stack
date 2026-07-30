@@ -1,0 +1,42 @@
+---
+name: subject-induction
+description: |
+  按学科领域对知识库进行结构化整理和归纳。
+  当用户需要将零散的知识点按专业方向组织、建立学科索引、
+  或深化某一领域的知识体系时触发。
+  支持计算力学与有限元、软件工程与架构、人工智能与LLM、
+  工程仿真自动化、知识管理与工具链五大领域。
+author: knowledge-pipeline
+version: 1.0.0
+license: MIT
+
+tools:
+  - name: induce_domains
+    description: 按五大领域对知识库进行归纳整理
+    parameters:
+      - name: source_folder
+        type: string
+        default: "D:/knowledgement"
+    returns:
+      - domain_count
+      - topic_count
+
+  - name: generate_domain_index
+    description: 为指定领域生成 📋 索引
+    parameters:
+      - name: domain_name
+        type: string
+        required: true
+    returns:
+      - index_path
+
+categories:
+  - organization
+  - induction
+  - domain-knowledge
+
+tags:
+  - domain
+  - taxonomy
+  - obsidian
+  - knowledge-graph

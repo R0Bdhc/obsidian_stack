@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+
+# Configuration (user-specific)
+config/workflow.yaml.active
+config/workflow.yaml.local
+
+# Vault data (if testing inside project)
+_test_vault/
+*.mp3
+*.wav
+*.m4a
+*.ogg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Exports (generated)
+Exports/
